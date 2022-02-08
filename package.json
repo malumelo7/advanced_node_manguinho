@@ -10,7 +10,7 @@
   "scripts": {
     "tsc": "tsc",
     "build": "npm run tsc",
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/app.ts",
-    "start": "node build/app.js"
+    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules src/main/api/index.ts",
+    "start": "node build/main/api/index.js"
   }
 }
