@@ -1,5 +1,6 @@
 import { AuthenticationError } from '../../../src/domain/errors'
 import { FacebookAuthentication } from '../../../src/domain/features'
+import { LoadFacebookUserApi } from '../../../src/data/contracts/apis'
 
 class FacebookAuthenticationService {
   constructor (private readonly LoadFacebookUserApi: LoadFacebookUserApi
@@ -9,19 +10,6 @@ class FacebookAuthenticationService {
     await this.LoadFacebookUserApi.loadUser(params)
     return new AuthenticationError()
   }
-}
-
-interface LoadFacebookUserApi {
-  loadUser: (params: LoadFacebookUserApi.Params) => Promise<LoadFacebookUserApi.Result>
-}
-
-namespace LoadFacebookUserApi {
-  export type Params = {
-    token: string
-  }
-
-  export type Result = undefined
-
 }
 
 class LoadFacebookUserApiSpy implements LoadFacebookUserApi {
